@@ -2,27 +2,33 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-07 14:15:57
+# @Last Modified time: 2016-07-07 16:07:24
 
+import re
 import json
 import data_loader
+from attr_func import *
 
-def dummy():
-    pass
+def dummy(attr_vals):
+    return False
 
-
-ATTRIBUTE_NAMES = {
-    'phone_number': dummy,
-    'date': dummy,
-    'email': dummy,
-    'text': dummy,
-    'junk': dummy
+ATTRIBUTE_NAMES = { # in order
+    'phone_number': attr_func_phone_number,
+    'date': attr_func_date,
+    'email': attr_func_email,
+    'state': dummy,
+    'city': dummy,
+    'text': attr_func_text,
+    'junk': attr_func_junk
 }
 
 def load_attribute_values(jsonlines):
     attribute_values_dict = {}
     for jsonline in jsonlines:
-        json_obj = json.loads(jsonline)
+        try:
+            json_obj = json.loads(jsonline)
+        except Exception as e:
+            raise Exception(e, 'parse json string error')
         for (k, v) in json_obj.items():
             attribute_values_dict.setdefault(k, [])
             attribute_values_dict[k].append(v)
@@ -30,7 +36,10 @@ def load_attribute_values(jsonlines):
 
 
 def identify_attribute_name(attr_vals, attr_func_handlers=ATTRIBUTE_NAMES):
-    pass
+    for (attr_name, attr_func) in attr_func_handlers.items():
+        if attr_func(attr_vals):
+            return attr_name
+    return None
 
 
 def identify(filepath, output=None):
@@ -40,17 +49,15 @@ def identify(filepath, output=None):
     jsonlines = data_loader.load_jsonlines_from_file(filepath)
     attribute_values_dict = load_attribute_values(jsonlines)
 
-    for (attribute, values) in attribute_values_dict:
+    for (attribute, values) in attribute_values_dict.items():
         pred_attr_name = identify_attribute_name(values)
         mapping[attribute] = pred_attr_name
 
-
-    """
     if output:
-        file_handler = open(path, 'wb')
-        # do something
+        file_handler = open(output, 'wb')
+        file_handler.write(json.dumps(mapping))
         file_handler.close()
-    """ 
 
 if __name__ == '__main__':
     pass
+

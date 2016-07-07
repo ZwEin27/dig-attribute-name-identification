@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 12:36:42
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-07 14:13:40
+# @Last Modified time: 2016-07-07 15:55:08
 
 import os
 import json
@@ -25,7 +25,7 @@ def load_jsonlines_from_file(filepath):
     json_list = []
     with open(filepath, 'rb') as filehandler:
         for jsonline in filehandler.readlines():
-            json_list.append(json.loads(jsonline))
+            json_list.append(jsonline)
     return json_list
 
 def load_jsonlines_from_filepath_list(filepath_list):
@@ -34,7 +34,6 @@ def load_jsonlines_from_filepath_list(filepath_list):
         jsonlines.extend(load_jsonlines_from_file(filepath))
     return jsonlines
        
-
 
 if __name__ == '__main__':
     load_domain_file_paths('../../dig-data/sample-datasets/escorts/')
