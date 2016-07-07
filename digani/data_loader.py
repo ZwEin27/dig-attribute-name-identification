@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 12:36:42
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-07 13:24:12
+# @Last Modified time: 2016-07-07 14:13:40
 
 import os
 import json
@@ -12,7 +12,7 @@ def load_domain_file_paths(root_dir):
     df_paths = {}
     for domain in os.listdir(root_dir):
         df_paths[domain] = []
-
+        # print domain
         for subdir, dirs, files in os.walk(os.path.join(root_dir, domain)):
             for file in files:
                 if '_extractions' in file:
