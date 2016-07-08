@@ -3,7 +3,6 @@ import os
 import data_loader
 import identifier
 
-
 def run(root_dir):
     df_paths = data_loader.load_domain_file_paths(root_dir)
     for (domain_name, filepath_list) in df_paths.items():

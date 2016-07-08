@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 10:24:51
+# @Last Modified time: 2016-07-08 13:08:14
 
 import re
 import json
@@ -13,7 +13,7 @@ def dummy(attr_vals):
     return False
 
 ATTRIBUTE_NAMES = { # in order
-    'phone_number': attr_func_phone_number,
+    'telephone': attr_func_phone_number,
     'date': attr_func_date,
     'email': attr_func_email,
     'state': dummy,
