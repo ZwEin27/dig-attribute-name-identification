@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-07 16:07:24
+# @Last Modified time: 2016-07-08 10:24:51
 
 import re
 import json
@@ -18,9 +18,16 @@ ATTRIBUTE_NAMES = { # in order
     'email': attr_func_email,
     'state': dummy,
     'city': dummy,
+    'name': dummy,
     'text': attr_func_text,
-    'junk': attr_func_junk
+    'junk': attr_func_junk,
+    'unkown': lambda _: True
 }
+
+IGNORED_ATTRIBUTE_NAMES = [
+    '_url',
+    '_cdr_id'
+]
 
 def load_attribute_values(jsonlines):
     attribute_values_dict = {}
@@ -50,8 +57,9 @@ def identify(filepath, output=None):
     attribute_values_dict = load_attribute_values(jsonlines)
 
     for (attribute, values) in attribute_values_dict.items():
-        pred_attr_name = identify_attribute_name(values)
-        mapping[attribute] = pred_attr_name
+        if attribute in IGNORED_ATTRIBUTE_NAMES:
+            continue
+        mapping[attribute] = identify_attribute_name(values)
 
     if output:
         file_handler = open(output, 'wb')
