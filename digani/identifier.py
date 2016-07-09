@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 14:33:41
+# @Last Modified time: 2016-07-09 14:46:23
 
 import re
 import json
@@ -16,7 +16,6 @@ ATTRIBUTE_NAMES = { # in order
     'telephone': attr_func_telephone,
     'date': attr_func_date,
     'email': attr_func_email,
-    'state': dummy,
     'city': attr_func_city,
     'state': attr_func_state,
     'person': attr_func_person,
@@ -50,7 +49,8 @@ def identify_attribute_name(attr_vals, attr_func_handlers=ATTRIBUTE_NAMES):
     return None
 
 
-def identify(filepath, output=None):
+
+def identify(filepath):
     
     mapping = {}
 
@@ -62,10 +62,7 @@ def identify(filepath, output=None):
             continue
         mapping[attribute] = identify_attribute_name(values)
 
-    if output:
-        file_handler = open(output, 'wb')
-        file_handler.write(json.dumps(mapping, indent=4, sort_keys=True))
-        file_handler.close()
+    return mapping
 
 if __name__ == '__main__':
     pass

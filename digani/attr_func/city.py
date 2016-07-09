@@ -2,9 +2,9 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:47:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 14:33:22
+# @Last Modified time: 2016-07-09 11:46:44
 
-from digani.res import *
+from digani.res import city
 
 def attr_func_city(attr_vals):
 
@@ -14,13 +14,10 @@ def attr_func_city(attr_vals):
         if not value or value == '':
             continue
 
-        if value.strip().lower() in res_city_names:
+        if city.match(value):
             count += 1
 
     if count == 0:
         return False
-
-
     return True
 
-# print res_city_names[:4]
