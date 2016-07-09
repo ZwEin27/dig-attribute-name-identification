@@ -2,12 +2,11 @@
 # @Author: ZwEin
 # @Date:   2016-07-09 10:58:11
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-09 11:22:57
+# @Last Modified time: 2016-07-09 14:55:37
 
 import pygtrie
 
-def load_trie_obj(words):
-    trie_obj = pygtrie.CharTrie()
+def load_trie_obj(trie_obj, words):
     for word in words:
         trie_obj[word] = word
     return trie_obj

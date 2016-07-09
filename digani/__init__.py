@@ -9,9 +9,8 @@ def run(root_dir):
     for (domain_name, filepath_list) in df_paths.items():
         for filepath in filepath_list:
             mapping = identifier.identify(filepath)
-            # path = os.path.join('/'.join(filepath.split('/')[:-1]), 'step02_rules.json')
             cluster_dir = '/'.join(filepath.split('/')[:-1])
-            rule_generator.generate(mapping, cluster_dir, show_mapping=True)
+            rule_generator.generate(mapping, cluster_dir, show_mapping=True, show_extractions=True)
 
         # break
 

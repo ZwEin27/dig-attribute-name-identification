@@ -22,7 +22,7 @@ class TestMainMethods(unittest.TestCase):
 
     def test_digani(self):
         digani.run('../../dig-data/sample-datasets/escorts/')
-       
+    
 if __name__ == '__main__':
     # unittest.main()
 

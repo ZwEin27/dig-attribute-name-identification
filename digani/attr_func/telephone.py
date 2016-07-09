@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:30:09
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 13:49:26
+# @Last Modified time: 2016-07-09 15:52:12
 import re
 
 from pnmatcher import PhoneNumberMatcher
@@ -13,8 +13,9 @@ re_digits = re.compile(r'[0-9]+')
 
 def attr_func_telephone(attr_vals):
 
-    # size = len(attr_vals)
+    
     count = 0
+    size = len(attr_vals)
     
     for value in attr_vals:
         if not value or value == '':
@@ -40,5 +41,6 @@ def attr_func_telephone(attr_vals):
 
     if count == 0:
         return False
-
+    if float(count) / size < 0.8:
+        return False
     return True
