@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:30:09
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 13:09:33
+# @Last Modified time: 2016-07-08 13:49:26
 import re
 
 from pnmatcher import PhoneNumberMatcher
@@ -11,7 +11,7 @@ matcher = PhoneNumberMatcher()
 re_alphabet = re.compile(r'[a-zA-Z]+')
 re_digits = re.compile(r'[0-9]+')
 
-def attr_func_phone_number(attr_vals):
+def attr_func_telephone(attr_vals):
 
     # size = len(attr_vals)
     count = 0

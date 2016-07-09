@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 13:08:14
+# @Last Modified time: 2016-07-08 14:33:41
 
 import re
 import json
@@ -13,12 +13,13 @@ def dummy(attr_vals):
     return False
 
 ATTRIBUTE_NAMES = { # in order
-    'telephone': attr_func_phone_number,
+    'telephone': attr_func_telephone,
     'date': attr_func_date,
     'email': attr_func_email,
     'state': dummy,
-    'city': dummy,
-    'name': dummy,
+    'city': attr_func_city,
+    'state': attr_func_state,
+    'person': attr_func_person,
     'text': attr_func_text,
     'junk': attr_func_junk,
     'unkown': lambda _: True
@@ -63,7 +64,7 @@ def identify(filepath, output=None):
 
     if output:
         file_handler = open(output, 'wb')
-        file_handler.write(json.dumps(mapping))
+        file_handler.write(json.dumps(mapping, indent=4, sort_keys=True))
         file_handler.close()
 
 if __name__ == '__main__':
