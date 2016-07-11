@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 11:41:36
+# @Last Modified time: 2016-07-11 14:07:20
 
 import os
 import json
@@ -13,6 +13,12 @@ from digani.common import trie_helper
 RES_ETHNICITY_NAMES_PATH = os.path.join(os.path.dirname(__file__), 'names.json')
 
 ethnicity_names_trie_obj = pygtrie.CharTrie()
+
+ETHNICITY_COLORS = [
+    'White',
+    'Black',
+    'Yellow'
+]
 
 def load(names_path=RES_ETHNICITY_NAMES_PATH):
     global ethnicity_names_trie_obj
