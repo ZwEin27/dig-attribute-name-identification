@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 14:46:28
+# @Last Modified time: 2016-07-11 14:49:33
 
 import re
 
@@ -11,7 +11,7 @@ class AttributeFunctionBase(object):
     def __init__(self, attr_vals):
         self.freq_dict, self.attr_vals = self.initialize(attr_vals)
 
-    def initialize(self, attr_vals, threshold=0.8):
+    def initialize(self, attr_vals, threshold=0.3):
         # e.g. of <keyword>, remove of
         freq_dict = {}
         freq_token_dict = {}
@@ -26,7 +26,6 @@ class AttributeFunctionBase(object):
         for (k, v) in freq_token_dict.iteritems():
             if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
                 to_be_removed.append(k)
-
         refiend_attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
         return freq_dict, refiend_attr_vals
 

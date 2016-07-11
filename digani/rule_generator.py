@@ -2,12 +2,12 @@
 # @Author: ZwEin
 # @Date:   2016-07-09 14:35:51
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-10 20:44:06
+# @Last Modified time: 2016-07-11 15:51:04
 
 import os
 import codecs
 import json
-from digani.attr_func import IGNORED_ATTRIBUTE_NAMES
+from digani.attr_func import IGNORED_ATTRIBUTE_NAMES, ATTRIBUTE_NAMES_JUNK
 
 FILIENAME_RULES_STEP01 = 'step01_rules.json'
 FILIENAME_RULES_STEP02 = 'step02_rules.json'
@@ -28,12 +28,20 @@ def generate_step02_extractions(mapping, step01_extractions_path):
             extraction = json.loads(line)
             keys = extraction.keys()
             for key in keys:
+
                 if key in IGNORED_ATTRIBUTE_NAMES:
                     continue
+
+                name = mapping[key]
+
+                if name == ATTRIBUTE_NAMES_JUNK:
+                    continue
+
                 if mapping[key] in extraction:
-                    extraction[mapping[key]] += ',' + extraction.pop(key)
+                    extraction[name] += ',' + extraction.pop(key)
                 else:
-                    extraction[mapping[key] if mapping[key] != 'unknown' else key] = extraction.pop(key)
+                    extraction[name if name != 'unknown' else key] = extraction.pop(key)
+                    
             extractions.append(extraction)
     return extractions
 
