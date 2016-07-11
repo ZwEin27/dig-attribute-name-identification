@@ -2,10 +2,11 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-10 21:22:26
+# @Last Modified time: 2016-07-10 21:44:31
 
 
 from telephone import *
+from identifier import *
 from date import *
 from email import *
 from text import *
@@ -41,7 +42,7 @@ def dummy(attr_vals):
 
 ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_TELEPHONE: attr_func_telephone,
-    ATTRIBUTE_NAMES_INDENTIFIER: dummy,
+    ATTRIBUTE_NAMES_INDENTIFIER: attr_func_identifier,
     ATTRIBUTE_NAMES_DATE: attr_func_date,
     ATTRIBUTE_NAMES_ZIP: dummy,
     ATTRIBUTE_NAMES_AGE: dummy,
