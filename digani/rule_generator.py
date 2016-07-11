@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-09 14:35:51
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 15:51:04
+# @Last Modified time: 2016-07-11 16:07:13
 
 import os
 import codecs
@@ -17,9 +17,14 @@ FILIENAME_EXTRACTIONS_STEP02 = 'step02_extractions.jl'
 
 def generate_step02_rules(mapping, step01_rules_path):
     rules = json.load(codecs.open(step01_rules_path, 'r', 'utf-8'))
+    new_rules = []
     for rule in rules:
-        rule['name'] = mapping[rule['name']]
-    return rules
+        name = mapping[rule['name']]
+        if name.split('-')[0] == ATTRIBUTE_NAMES_JUNK:
+            continue
+        rule['name'] = name
+        new_rules.append(rule)
+    return new_rules
 
 def generate_step02_extractions(mapping, step01_extractions_path):
     extractions = []
@@ -27,21 +32,23 @@ def generate_step02_extractions(mapping, step01_extractions_path):
         for line in file_handler:
             extraction = json.loads(line)
             keys = extraction.keys()
+            # names = {}
             for key in keys:
 
                 if key in IGNORED_ATTRIBUTE_NAMES:
                     continue
 
                 name = mapping[key]
-
-                if name == ATTRIBUTE_NAMES_JUNK:
+                # names.setdefault(name, 0)
+                # names[name] += 1
+                if name.split('-')[0] == ATTRIBUTE_NAMES_JUNK:
                     continue
+                # if name in extraction:
+                #     extraction[name] += ',' + extraction.pop(key)
+                # else:
+                # '-' + str(names[name])
+                extraction[name if name != 'unknown' else key] = extraction.pop(key)
 
-                if mapping[key] in extraction:
-                    extraction[name] += ',' + extraction.pop(key)
-                else:
-                    extraction[name if name != 'unknown' else key] = extraction.pop(key)
-                    
             extractions.append(extraction)
     return extractions
 

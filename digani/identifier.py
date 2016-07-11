@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-10 20:46:48
+# @Last Modified time: 2016-07-11 16:02:02
 
 import os
 import re
@@ -39,10 +39,17 @@ def identify(filepath):
     jsonlines = data_loader.load_jsonlines_from_file(filepath)
     attribute_values_dict = load_attribute_values(jsonlines)
 
+    names = {}
     for (attribute, values) in attribute_values_dict.items():
         if attribute in IGNORED_ATTRIBUTE_NAMES:
             continue
-        mapping[attribute] = identify_attribute_name(values)
+
+        name = identify_attribute_name(values)
+        names.setdefault(name, 0)
+        names[name] += 1
+
+        name_no_seperator = '-'
+        mapping[attribute] = name + name_no_seperator + str(names[name])
 
     path = os.path.join('/'.join(filepath.split('/')[:-1]), FILIENAME_MAPPING_STEP02)
     file_handler = open(path, 'wb')
