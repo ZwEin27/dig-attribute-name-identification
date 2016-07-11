@@ -2,38 +2,30 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 14:07:20
+# @Last Modified time: 2016-07-11 18:00:40
 
 import os
-import json
-import codecs
 import pygtrie
-from digani.common import trie_helper
+from digani.res.base import ResourceBase
 
-RES_ETHNICITY_NAMES_PATH = os.path.join(os.path.dirname(__file__), 'names.json')
+class ResourceEthnicity(ResourceBase):
 
-ethnicity_names_trie_obj = pygtrie.CharTrie()
+    res_names_path = os.path.join(os.path.dirname(__file__), 'names.json')
+    res_trie_obj = pygtrie.CharTrie()
+    ethnicity_color = [
+        'White',
+        'Black',
+        'Yellow'
+    ]
 
-ETHNICITY_COLORS = [
-    'White',
-    'Black',
-    'Yellow'
-]
+    def __init__(self):
+        ResourceBase.__init__(self)
+        self.load()
 
-def load(names_path=RES_ETHNICITY_NAMES_PATH):
-    global ethnicity_names_trie_obj
+    def load(self, trie_obj=res_trie_obj, names_path=res_names_path):
+        super(ResourceEthnicity, self).load(trie_obj, names_path=names_path)
 
-    if not ethnicity_names_trie_obj or names_path:
-        names = json.load(codecs.open(names_path, 'r', 'utf-8'))
-        trie_obj = trie_helper.load_trie_obj(ethnicity_names_trie_obj, names)
-        ethnicity_names_trie_obj = trie_obj
+    def match(self, token):
+        return super(ResourceEthnicity, self).match(token, ResourceEthnicity.res_trie_obj)
 
-    return ethnicity_names_trie_obj
-
-ethnicity_names_trie_obj = load()
-
-def match(token):
-    return trie_helper.match_names(token, ethnicity_names_trie_obj)
-    
-if __name__ == '__main__':
-    pass
+res_ethnicity_obj = ResourceEthnicity()

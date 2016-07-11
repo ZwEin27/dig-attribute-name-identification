@@ -2,32 +2,26 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-09 14:56:24
+# @Last Modified time: 2016-07-11 18:00:49
+
 
 import os
-import json
-import codecs
 import pygtrie
-from digani.common import trie_helper
+from digani.res.base import ResourceBase
 
-RES_PERSON_NAMES_PATH = os.path.join(os.path.dirname(__file__), 'names.json')
+class ResourcePerson(ResourceBase):
 
-person_names_trie_obj = pygtrie.CharTrie()
+    res_names_path = os.path.join(os.path.dirname(__file__), 'names.json')
+    res_trie_obj = pygtrie.CharTrie()
 
-def load(names_path=RES_PERSON_NAMES_PATH):
-    global person_names_trie_obj
+    def __init__(self):
+        ResourceBase.__init__(self)
+        self.load()
 
-    if not person_names_trie_obj or names_path:
-        names = json.load(codecs.open(names_path, 'r', 'utf-8'))
-        trie_obj = trie_helper.load_trie_obj(person_names_trie_obj, names)
-        person_names_trie_obj = trie_obj
+    def load(self, trie_obj=res_trie_obj, names_path=res_names_path):
+        super(ResourcePerson, self).load(trie_obj, names_path=names_path)
 
-    return person_names_trie_obj
+    def match(self, token):
+        return super(ResourcePerson, self).match(token, ResourcePerson.res_trie_obj)
 
-person_names_trie_obj = load()
-
-def match(token):
-    return trie_helper.match_names(token, person_names_trie_obj)
-    
-if __name__ == '__main__':
-    pass
+res_person_obj = ResourcePerson()

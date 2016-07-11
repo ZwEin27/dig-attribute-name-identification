@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 15:45:10
+# @Last Modified time: 2016-07-11 16:59:40
 
 
 from telephone import *
@@ -23,12 +23,12 @@ ATTRIBUTE_NAMES_TELEPHONE = 'telephone'
 ATTRIBUTE_NAMES_DATE = 'date'
 ATTRIBUTE_NAMES_EMAIL = 'email'
 ATTRIBUTE_NAMES_LOCATION = 'location'
-ATTRIBUTE_NAMES_ZIP ='zip'  #
+ATTRIBUTE_NAMES_ZIP ='zip'  # dict
 ATTRIBUTE_NAMES_PERSON = 'name'
 ATTRIBUTE_NAMES_TEXT = 'text'
 ATTRIBUTE_NAMES_AGE ='age'
 ATTRIBUTE_NAMES_WEBSITE ='website'
-ATTRIBUTE_NAMES_INDENTIFIER ='indentifier' # 6- more
+ATTRIBUTE_NAMES_IDENTIFIER ='identifier' # 6- more
 ATTRIBUTE_NAMES_HAIR ='hair' #
 ATTRIBUTE_NAMES_EYE ='eye' #
 ATTRIBUTE_NAMES_BREAST ='breast' #
@@ -40,7 +40,7 @@ def dummy(attr_vals):
 
 ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_TELEPHONE: attr_func_telephone,
-    ATTRIBUTE_NAMES_INDENTIFIER: attr_func_identifier,
+    ATTRIBUTE_NAMES_IDENTIFIER: attr_func_identifier,
     ATTRIBUTE_NAMES_DATE: attr_func_date,
     ATTRIBUTE_NAMES_ZIP: dummy,
     ATTRIBUTE_NAMES_AGE: dummy,
@@ -58,7 +58,7 @@ ATTRIBUTE_NAMES = {
 
 ATTRIBUTE_NAMES_IN_ORDER = [
     ATTRIBUTE_NAMES_TELEPHONE,
-    ATTRIBUTE_NAMES_INDENTIFIER,
+    ATTRIBUTE_NAMES_IDENTIFIER,
     ATTRIBUTE_NAMES_DATE,
     ATTRIBUTE_NAMES_ZIP,
     ATTRIBUTE_NAMES_AGE,
