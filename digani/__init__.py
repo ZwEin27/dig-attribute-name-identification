@@ -10,7 +10,7 @@ def run(root_dir):
         for filepath in filepath_list:
             mapping = identifier.identify(filepath)
             cluster_dir = '/'.join(filepath.split('/')[:-1])
-            rule_generator.generate(mapping, cluster_dir, show_mapping=True, show_extractions=True)
+            rule_generator.generate(mapping, cluster_dir, show_extractions=True)
 
         # break
 

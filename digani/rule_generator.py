@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-09 14:35:51
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-09 16:41:44
+# @Last Modified time: 2016-07-10 20:44:06
 
 import os
 import codecs
@@ -38,7 +38,7 @@ def generate_step02_extractions(mapping, step01_extractions_path):
     return extractions
 
 
-def generate(mapping, output_dir, show_mapping=False, show_extractions=False):
+def generate(mapping, output_dir, show_extractions=False):
 
     step01_rules_path = os.path.join(output_dir, FILIENAME_RULES_STEP01)
     step02_rules_path = os.path.join(output_dir, FILIENAME_RULES_STEP02)
@@ -46,8 +46,9 @@ def generate(mapping, output_dir, show_mapping=False, show_extractions=False):
     step01_extractions_path = os.path.join(output_dir, FILIENAME_EXTRACTIONS_STEP01)
     step02_extractions_path = os.path.join(output_dir, FILIENAME_EXTRACTIONS_STEP02)
 
-    rules = mapping if show_mapping else generate_step02_rules(mapping, step01_rules_path)
 
+    # rules
+    rules = generate_step02_rules(mapping, step01_rules_path)
     file_handler = open(step02_rules_path, 'wb')
     file_handler.write(json.dumps(rules, indent=2, sort_keys=True))
     file_handler.close()

@@ -2,8 +2,9 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 13:16:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-09 16:18:57
+# @Last Modified time: 2016-07-10 20:46:48
 
+import os
 import re
 import json
 import data_loader
@@ -28,6 +29,9 @@ def identify_attribute_name(attr_vals, attr_func_handlers=ATTRIBUTE_NAMES):
             return attr_name
     return None
 
+
+FILIENAME_MAPPING_STEP02 = 'step02_mapping.json'
+
 def identify(filepath):
     
     mapping = {}
@@ -39,6 +43,11 @@ def identify(filepath):
         if attribute in IGNORED_ATTRIBUTE_NAMES:
             continue
         mapping[attribute] = identify_attribute_name(values)
+
+    path = os.path.join('/'.join(filepath.split('/')[:-1]), FILIENAME_MAPPING_STEP02)
+    file_handler = open(path, 'wb')
+    file_handler.write(json.dumps(mapping, indent=2, sort_keys=True))
+    file_handler.close()
 
     return mapping
 
