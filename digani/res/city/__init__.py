@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-09 14:56:16
+# @Last Modified time: 2016-07-11 13:45:28
 
 import os
 import json
@@ -10,7 +10,8 @@ import codecs
 import pygtrie
 from digani.common import trie_helper
 
-RES_CITY_NAMES_PATH = os.path.join(os.path.dirname(__file__), 'names.json')
+# RES_CITY_NAMES_PATH = os.path.join(os.path.dirname(__file__), 'names.json')
+RES_CITY_NAMES_PATH = os.path.join(os.path.dirname(__file__), 'names_small.json')
 
 city_names_trie_obj = pygtrie.CharTrie()
 
