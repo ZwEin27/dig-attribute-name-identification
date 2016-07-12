@@ -17,7 +17,7 @@ DIGANI aims to extract phone numbers from url and text for [DIG](http://usc-isi-
 
 ## Command line Usage
 
-enter the <WORK_PATH>, and run script below
+enter the WORK_PATH, and run script below
 
     run-digani $(pwd)
 
