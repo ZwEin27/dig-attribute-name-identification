@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 18:38:26
+# @Last Modified time: 2016-07-12 18:45:24
 
 
 from telephone import *
@@ -43,7 +43,7 @@ def dummy(attr_vals):
     return False
 
 ATTRIBUTE_NAMES = {
-    ATTRIBUTE_NAMES_TELEPHONE: attr_func_telephone,
+    ATTRIBUTE_NAMES_TELEPHONE: AttributeFunctionTelephone.match,
     ATTRIBUTE_NAMES_IDENTIFIER: AttributeFunctionIdentifier.match,
     ATTRIBUTE_NAMES_DATE: AttributeFunctionDate.match,
     ATTRIBUTE_NAMES_ZIPCODE: AttributeFunctionZipCode.match,
