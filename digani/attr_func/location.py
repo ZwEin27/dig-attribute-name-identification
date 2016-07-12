@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:13
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:25:40
+# @Last Modified time: 2016-07-12 19:06:19
 
 
 from digani.res.city import res_city_obj
@@ -11,6 +11,12 @@ from digani.res.country import res_country_obj
 from base import AttributeFunctionBase
 
 class AttributeFunctionLocation(AttributeFunctionBase):
+
+    @staticmethod
+    def valid_location(string):
+        if not (res_city_obj.match(string) or res_state_obj.match(string) or res_country_obj.match(string)):
+            return False
+        return True
 
     @staticmethod
     def refine(attr_vals):
@@ -26,11 +32,15 @@ class AttributeFunctionLocation(AttributeFunctionBase):
         if not super(AttributeFunctionLocation, AttributeFunctionLocation).pre_judge(attr_vals):
             return False
 
-        if not \
-            (super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, res_city_obj.match, threshold=0.4) or \
-            super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, res_state_obj.match, threshold=0.4) or \
-            super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, res_country_obj.match, threshold=0.4) \
-            ):
+        if not super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, AttributeFunctionLocation.valid_location, threshold=0.4):
             return False
 
         return True
+
+"""
+
+(super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, res_city_obj.match, threshold=0.4) or \
+super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, res_state_obj.match, threshold=0.4) or \
+super(AttributeFunctionLocation, AttributeFunctionLocation).valid_counts(attr_vals, res_country_obj.match, threshold=0.4) \
+):
+"""

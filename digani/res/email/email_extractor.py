@@ -203,7 +203,7 @@ class EE(object):
 
         clean_results = Set()
         for (u, d) in matches:
-            print "user: %s, domain: %s" % (u, d)
+            # print "user: %s, domain: %s" % (u, d)
             domain = self.clean_domain(d)
             username = EE.clean_username(u)
             if domain and username:

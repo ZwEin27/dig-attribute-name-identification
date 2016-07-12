@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 18:45:24
+# @Last Modified time: 2016-07-12 18:58:33
 
 
 from telephone import *
@@ -48,7 +48,7 @@ ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_DATE: AttributeFunctionDate.match,
     ATTRIBUTE_NAMES_ZIPCODE: AttributeFunctionZipCode.match,
     ATTRIBUTE_NAMES_AGE: AttributeFunctionAge.match,
-    ATTRIBUTE_NAMES_EMAIL: dummy, #AttributeFunctionEmail.match,
+    ATTRIBUTE_NAMES_EMAIL: AttributeFunctionEmail.match,
     ATTRIBUTE_NAMES_WEBSITE: AttributeFunctionWebsite.match,
     ATTRIBUTE_NAMES_LOCATION: AttributeFunctionLocation.match,   # attr_func_location
     ATTRIBUTE_NAMES_PERSON: AttributeFunctionPerson.match,

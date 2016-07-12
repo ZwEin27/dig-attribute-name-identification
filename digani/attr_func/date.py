@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:52:57
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 11:25:49
+# @Last Modified time: 2016-07-12 18:50:58
 
 
 from base import AttributeFunctionBase
@@ -45,6 +45,8 @@ class AttributeFunctionDate(AttributeFunctionBase):
 
         if not has_date(string):
             return False
+
+        return True
 
 
     @staticmethod

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:30:09
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 18:45:06
+# @Last Modified time: 2016-07-12 19:06:45
 
 import re
 from base import AttributeFunctionBase
@@ -36,7 +36,7 @@ class AttributeFunctionTelephone(AttributeFunctionBase):
         if not valid_digit_length(string):
             return False
 
-        if not matcher.match(value, source_type='text'):
+        if not matcher.match(string, source_type='text'):
             return False
 
         return True

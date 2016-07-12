@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 11:01:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:15:21
+# @Last Modified time: 2016-07-12 19:40:04
 
 
 import sys
@@ -44,6 +44,14 @@ class AttributeFunctionMethods(unittest.TestCase):
             'Anaheim MP / AMP / AAMP'
         ]
         print AttributeFunctionLocation.match(attr_vals)
+
+    def test_func_email(self):
+        attr_vals = [
+            'zwein@gmail.com',
+            'sdf@yahoo.com',
+            'Cocos (keeling) Islands'
+        ]
+        print AttributeFunctionEmail.match(attr_vals)
     
 if __name__ == '__main__':
     # unittest.main()
@@ -53,7 +61,8 @@ if __name__ == '__main__':
 
         # suite.addTest(AttributeFunctionMethods('test_func_base'))
         # suite.addTest(AttributeFunctionMethods('test_func_person'))
-        suite.addTest(AttributeFunctionMethods('test_func_location'))
+        # suite.addTest(AttributeFunctionMethods('test_func_location'))
+        suite.addTest(AttributeFunctionMethods('test_func_email'))
 
         runner = unittest.TextTestRunner()
         runner.run(suite)
