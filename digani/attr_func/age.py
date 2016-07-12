@@ -2,38 +2,45 @@
 # @Author: ZwEin
 # @Date:   2016-07-12 10:55:55
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 11:02:28
+# @Last Modified time: 2016-07-12 11:25:21
 
 
 from base import AttributeFunctionBase
 import dateutil.parser as dparser
 
+import re
+re_alphabet = re.compile(r'[a-zA-Z]+')
+re_digits = re.compile(r'[0-9]+')
 
 class AttributeFunctionAge(AttributeFunctionBase):
 
     @staticmethod
-    def has_only_digits(attr_vals):
-        for value in attr_vals:
+    def valid_age(string):
+
+        def has_only_digits(string):
             try:
-                int(value)
+                int(string)
             except:
                 return False
-        return True
+            return True
 
-    @staticmethod
-    def valid_digit_length(attr_vals):
-        for value in attr_vals:
-            digits = re_digits.findall(value)
+        def valid_digit_length(string):
+            digits = re_digits.findall(string)
             digits = ''.join(digits)
             if len(digits) != 2:
                 return False
-        return True
+            return True
 
-    @staticmethod
-    def valid_age(string):
+        if not has_only_digits(string):
+            return False
+
+        if not valid_digit_length(string):
+            return False
+
         age = int(string)
         if age < 10 or age > 99:
             return False
+
         return True
 
     @staticmethod
@@ -44,12 +51,6 @@ class AttributeFunctionAge(AttributeFunctionBase):
     @staticmethod
     def match(attr_vals):
         # freq_dict = super(AttributeFunctionAge, AttributeFunctionAge).frequent_count(attr_vals)
-
-        if not has_only_digits(attr_vals):
-            return False
-
-        if not valid_digit_length(attr_vals):
-            return False
 
         attr_vals = super(AttributeFunctionAge, AttributeFunctionAge).refine_attr_vals(attr_vals, AttributeFunctionAge.refine)
         

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:56:04
+# @Last Modified time: 2016-07-12 11:47:58
 
 
 from telephone import *
@@ -14,6 +14,7 @@ from junk import *
 from person import *
 from location import *
 from age import *
+from digani.attr_func.zip import *
 
 
 # attribute names
@@ -40,10 +41,10 @@ def dummy(attr_vals):
 
 ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_TELEPHONE: attr_func_telephone,
-    ATTRIBUTE_NAMES_IDENTIFIER: attr_func_identifier,
-    ATTRIBUTE_NAMES_DATE: attr_func_date,
-    ATTRIBUTE_NAMES_ZIP: dummy,
-    ATTRIBUTE_NAMES_AGE: dummy,
+    ATTRIBUTE_NAMES_IDENTIFIER: AttributeFunctionIdentifier.match,
+    ATTRIBUTE_NAMES_DATE: AttributeFunctionDate.match,
+    ATTRIBUTE_NAMES_ZIP: AttributeFunctionZip.match,
+    ATTRIBUTE_NAMES_AGE: AttributeFunctionAge.match,
     ATTRIBUTE_NAMES_EMAIL: attr_func_email,
     ATTRIBUTE_NAMES_WEBSITE: dummy,
     ATTRIBUTE_NAMES_LOCATION: AttributeFunctionLocation.match,   # attr_func_location
@@ -62,16 +63,16 @@ ATTRIBUTE_NAMES_IN_ORDER = [
     ATTRIBUTE_NAMES_DATE,
     ATTRIBUTE_NAMES_AGE,
     ATTRIBUTE_NAMES_IDENTIFIER,
-    ATTRIBUTE_NAMES_EMAIL,
-    ATTRIBUTE_NAMES_WEBSITE,
-    ATTRIBUTE_NAMES_HAIR,
-    ATTRIBUTE_NAMES_EYE,
-    ATTRIBUTE_NAMES_BREAST,
-    ATTRIBUTE_NAMES_ETHNICITY,
+    ATTRIBUTE_NAMES_EMAIL,      # todo
+    ATTRIBUTE_NAMES_WEBSITE,    # todo
+    ATTRIBUTE_NAMES_HAIR,       # todo
+    ATTRIBUTE_NAMES_EYE,        # todo
+    ATTRIBUTE_NAMES_BREAST,     # todo
+    ATTRIBUTE_NAMES_ETHNICITY,  # todo
     ATTRIBUTE_NAMES_PERSON,
     ATTRIBUTE_NAMES_LOCATION,
-    ATTRIBUTE_NAMES_JUNK,
-    ATTRIBUTE_NAMES_TEXT
+    ATTRIBUTE_NAMES_JUNK,       # todo
+    ATTRIBUTE_NAMES_TEXT        # todo
 ]
 
 IGNORED_ATTRIBUTE_NAMES = [

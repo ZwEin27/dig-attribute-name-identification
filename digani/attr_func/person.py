@@ -2,12 +2,18 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:48:43
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 23:37:36
+# @Last Modified time: 2016-07-12 11:51:15
 
 from digani.res.person import res_person_obj
 from base import AttributeFunctionBase
 
 class AttributeFunctionPerson(AttributeFunctionBase):
+
+    @staticmethod
+    def valid_person(string):
+        if not res_person_obj.match(string):
+            return False
+        return True
 
     @staticmethod
     def refine(attr_vals):
@@ -23,7 +29,7 @@ class AttributeFunctionPerson(AttributeFunctionBase):
         if not super(AttributeFunctionPerson, AttributeFunctionPerson).pre_judge(attr_vals):
             return False
 
-        if not super(AttributeFunctionPerson, AttributeFunctionPerson).valid_counts(attr_vals, res_person_obj.match, threshold=0.4):
+        if not super(AttributeFunctionPerson, AttributeFunctionPerson).valid_counts(attr_vals, AttributeFunctionPerson.valid_person, threshold=0.4):
             return False
 
         return True

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:44:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:57:16
+# @Last Modified time: 2016-07-12 11:18:15
 
 from base import AttributeFunctionBase
 
@@ -13,21 +13,28 @@ re_digits = re.compile(r'[0-9]+')
 class AttributeFunctionIdentifier(AttributeFunctionBase):
 
     @staticmethod
-    def has_only_digits(attr_vals):
-        for value in attr_vals:
+    def valid_identifier(string):
+
+        def has_only_digits(string):
             try:
-                int(value)
+                int(string)
             except:
                 return False
-        return True
+            return True
 
-    @staticmethod
-    def valid_digit_length(attr_vals):
-        for value in attr_vals:
-            digits = re_digits.findall(value)
+        def valid_digit_length(string):
+            digits = re_digits.findall(string)
             digits = ''.join(digits)
             if len(digits) < 6:
                 return False
+            return True
+
+        if not has_only_digits(string):
+            return False
+
+        if not valid_digit_length(string):
+            return False
+
         return True
 
     @staticmethod
@@ -39,17 +46,12 @@ class AttributeFunctionIdentifier(AttributeFunctionBase):
     def match(attr_vals):
         # freq_dict = super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).frequent_count(attr_vals)
 
-        if not has_only_digits(attr_vals):
-            return False
-
-        if not valid_digit_length(attr_vals):
-            return False
-
         attr_vals = super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).refine_attr_vals(attr_vals, AttributeFunctionIdentifier.refine)
         
         if not super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).pre_judge(attr_vals):
             return False
 
-        # add valid count if needed
+        if not super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).valid_counts(attr_vals, AttributeFunctionIdentifier.valid_identifier, threshold=0.4):
+            return False
 
         return True
