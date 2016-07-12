@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 16:59:40
+# @Last Modified time: 2016-07-11 22:25:18
 
 
 from telephone import *
@@ -47,7 +47,7 @@ ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_EMAIL: attr_func_email,
     ATTRIBUTE_NAMES_WEBSITE: dummy,
     ATTRIBUTE_NAMES_LOCATION: attr_func_city,   # attr_func_location
-    ATTRIBUTE_NAMES_PERSON: attr_func_person,
+    ATTRIBUTE_NAMES_PERSON: AttributeFunctionPerson.match,
     ATTRIBUTE_NAMES_HAIR: dummy,
     ATTRIBUTE_NAMES_EYE: dummy,
     ATTRIBUTE_NAMES_BREAST: dummy,

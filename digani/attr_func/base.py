@@ -2,32 +2,55 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 14:49:33
+# @Last Modified time: 2016-07-11 22:53:41
 
 import re
 
 class AttributeFunctionBase(object):
 
-    def __init__(self, attr_vals):
-        self.freq_dict, self.attr_vals = self.initialize(attr_vals)
-
-    def initialize(self, attr_vals, threshold=0.3):
-        # e.g. of <keyword>, remove of
+    @staticmethod
+    def frequent_count(attr_vals):
         freq_dict = {}
+        size = len(attr_vals)
+        for value in attr_vals:
+            freq_dict.setdefault(value, 0)
+            freq_dict[value] += 1
+        return freq_dict
+
+    @staticmethod
+    def refine_attr_vals(attr_vals, refine, threshold=0.6):
         freq_token_dict = {}
         size = len(attr_vals)
         for value in attr_vals:
             for token in value.split():
                 freq_token_dict.setdefault(token, 0)
                 freq_token_dict[token] += 1
-            freq_dict.setdefault(value, 0)
-            freq_dict[value] += 1
         to_be_removed = []
         for (k, v) in freq_token_dict.iteritems():
             if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
                 to_be_removed.append(k)
-        refiend_attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
-        return freq_dict, refiend_attr_vals
+        attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
+
+        return refine(attr_vals)
+
+    @staticmethod
+    def pre_judge(attr_vals):
+        pass
+
+    @staticmethod
+    def valid_counts(attr_vals, match, threshold=0.4):
+        count = 0
+        size = len(attr_vals)
+        for value in attr_vals:
+            if not value or value == '':
+                continue
+            if match(value):
+                count += 1
+        if count == 0:
+            return False
+        if float(count) / size < threshold:
+            return False
+        return True
 
 
 
@@ -46,3 +69,24 @@ if __name__ == '__main__':
     print obj.attr_vals
 
 
+
+"""
+
+def initialize(self, attr_vals, threshold=0.3):
+    # e.g. of <keyword>, remove of
+    freq_dict = {}
+    freq_token_dict = {}
+    size = len(attr_vals)
+    for value in attr_vals:
+        for token in value.split():
+            freq_token_dict.setdefault(token, 0)
+            freq_token_dict[token] += 1
+        freq_dict.setdefault(value, 0)
+        freq_dict[value] += 1
+    to_be_removed = []
+    for (k, v) in freq_token_dict.iteritems():
+        if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
+            to_be_removed.append(k)
+    refiend_attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
+    return freq_dict, refiend_attr_vals
+"""

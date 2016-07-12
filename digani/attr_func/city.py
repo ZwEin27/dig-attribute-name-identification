@@ -2,7 +2,20 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:47:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 15:45:45
+# @Last Modified time: 2016-07-11 18:18:19
+
+
+from digani.res.person import res_person_obj
+# from base import AttributeFunctionBase
+
+# class AttributeFunctionPerson(AttributeFunctionBase):
+
+#     def __init__(self, attr_vals):
+#         AttributeFunctionBase.__init__(self, attr_vals)
+
+#     @staticmethod
+#     def match(self):
+#         return False
 
 from digani.res import city
 
@@ -15,7 +28,7 @@ def attr_func_city(attr_vals):
         if not value or value == '':
             continue
 
-        if city.match(value):
+        if res_person_obj.match(value):
             # print 'value match', value
             count += 1
 
