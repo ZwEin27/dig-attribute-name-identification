@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:44:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:31:11
+# @Last Modified time: 2016-07-12 10:32:59
 
 from base import AttributeFunctionBase
 
@@ -48,9 +48,6 @@ class AttributeFunctionIdentifier(AttributeFunctionBase):
         attr_vals = super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).refine_attr_vals(attr_vals, AttributeFunctionIdentifier.refine)
         
         if not super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).pre_judge(attr_vals):
-            return False
-
-        if not super(AttributeFunctionIdentifier, AttributeFunctionIdentifier).valid_counts(attr_vals, res_city_obj.match, threshold=0.4:
             return False
 
         return True
