@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:13
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 23:54:13
+# @Last Modified time: 2016-07-12 10:25:40
 
 
 from digani.res.city import res_city_obj
@@ -22,7 +22,7 @@ class AttributeFunctionLocation(AttributeFunctionBase):
         # freq_dict = super(AttributeFunctionLocation, AttributeFunctionLocation).frequent_count(attr_vals)
 
         attr_vals = super(AttributeFunctionLocation, AttributeFunctionLocation).refine_attr_vals(attr_vals, AttributeFunctionLocation.refine)
-        print attr_vals
+
         if not super(AttributeFunctionLocation, AttributeFunctionLocation).pre_judge(attr_vals):
             return False
 
