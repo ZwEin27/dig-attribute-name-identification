@@ -2,9 +2,13 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 22:53:41
+# @Last Modified time: 2016-07-11 23:16:08
 
 import re
+
+reg_de_bracket = r'[\s]*\(.*\)[\s]*'
+re_de_bracket = re.compile(reg_de_bracket)
+
 
 class AttributeFunctionBase(object):
 
@@ -30,12 +34,12 @@ class AttributeFunctionBase(object):
             if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
                 to_be_removed.append(k)
         attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
-
+        attr_vals = [re_de_bracket.sub('', _) for _ in attr_vals]
         return refine(attr_vals)
 
     @staticmethod
     def pre_judge(attr_vals):
-        pass
+        return True
 
     @staticmethod
     def valid_counts(attr_vals, match, threshold=0.4):

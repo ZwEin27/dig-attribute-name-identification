@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 11:01:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 18:21:23
+# @Last Modified time: 2016-07-11 23:16:21
 
 
 import sys
@@ -31,8 +31,8 @@ class AttributeFunctionMethods(unittest.TestCase):
 
     def test_func_person(self):
         attr_vals = [
-            'anna',
-            'mike'
+            'anna (0)',
+            'roslyn (1)'
         ]
         print AttributeFunctionPerson.match(attr_vals)
     

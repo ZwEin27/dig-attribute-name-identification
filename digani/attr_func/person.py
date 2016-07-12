@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:48:43
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 22:56:37
+# @Last Modified time: 2016-07-11 23:16:33
 
 from digani.res.person import res_person_obj
 from base import AttributeFunctionBase
@@ -16,14 +16,14 @@ class AttributeFunctionPerson(AttributeFunctionBase):
 
     @staticmethod
     def match(attr_vals):
-        freq_dict = super(AttributeFunctionPerson, AttributeFunctionPerson).frequent_count(attr_vals)
+        # freq_dict = super(AttributeFunctionPerson, AttributeFunctionPerson).frequent_count(attr_vals)
 
         attr_vals = super(AttributeFunctionPerson, AttributeFunctionPerson).refine_attr_vals(attr_vals, AttributeFunctionPerson.refine)
-
+        print attr_vals
         if not super(AttributeFunctionPerson, AttributeFunctionPerson).pre_judge(attr_vals):
             return False
 
-        if not super(AttributeFunctionPerson, AttributeFunctionPerson).valid_counts(res_person_obj.match, threshold=0.4):
+        if not super(AttributeFunctionPerson, AttributeFunctionPerson).valid_counts(attr_vals, res_person_obj.match, threshold=0.4):
             return False
 
         return True
