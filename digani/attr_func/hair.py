@@ -2,14 +2,17 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:54
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 12:17:13
+# @Last Modified time: 2016-07-12 15:26:12
 
+from digani.res.hair import res_hair_obj
 from base import AttributeFunctionBase
 
 class AttributeFunctionHair(AttributeFunctionBase):
 
     @staticmethod
     def valid_hair(string):
+        if not res_hair_obj.match(string):
+            return False
         return True
 
     @staticmethod

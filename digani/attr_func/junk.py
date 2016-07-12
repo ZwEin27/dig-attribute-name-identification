@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:54:26
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 14:39:45
+# @Last Modified time: 2016-07-12 16:04:32
 
 from base import AttributeFunctionBase
 
@@ -21,7 +21,7 @@ class AttributeFunctionJunk(AttributeFunctionBase):
 
     @staticmethod
     def valid_junk(string):
-        if re_junks.search(value):
+        if re_junks.search(string):
             return True
         return False
 
