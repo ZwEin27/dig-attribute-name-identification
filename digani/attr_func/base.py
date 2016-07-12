@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 11:07:25
+# @Last Modified time: 2016-07-12 14:32:57
 
 import re
 
@@ -13,9 +13,15 @@ re_de_bracket = re.compile(reg_de_bracket)
 class AttributeFunctionBase(object):
 
     @staticmethod
+    def tokens_size(attr_vals):
+        tokens_size_dict = {}
+        for value in attr_vals:
+            tokens_size.setdefault(value, len(value.split()))
+        return tokens_size
+
+    @staticmethod
     def frequent_count(attr_vals):
         freq_dict = {}
-        size = len(attr_vals)
         for value in attr_vals:
             freq_dict.setdefault(value, 0)
             freq_dict[value] += 1
