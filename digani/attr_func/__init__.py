@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 11:47:58
+# @Last Modified time: 2016-07-12 12:16:29
 
 
 from telephone import *
@@ -64,7 +64,7 @@ ATTRIBUTE_NAMES_IN_ORDER = [
     ATTRIBUTE_NAMES_AGE,
     ATTRIBUTE_NAMES_IDENTIFIER,
     ATTRIBUTE_NAMES_EMAIL,      # todo
-    ATTRIBUTE_NAMES_WEBSITE,    # todo
+    ATTRIBUTE_NAMES_WEBSITE,
     ATTRIBUTE_NAMES_HAIR,       # todo
     ATTRIBUTE_NAMES_EYE,        # todo
     ATTRIBUTE_NAMES_BREAST,     # todo

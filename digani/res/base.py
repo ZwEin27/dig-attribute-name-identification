@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 11:28:57
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 16:56:02
+# @Last Modified time: 2016-07-12 12:33:37
 
 import os
 import json
@@ -23,6 +23,9 @@ class ResourceBase(object):
 
     def match(self, token, trie_obj):
         return trie_helper.match_names(token, trie_obj)
+
+    def contain(self, token):
+        return trie_helper.contain_names(token, trie_obj)
 
 
     

@@ -2,17 +2,17 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:53:40
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 11:52:01
+# @Last Modified time: 2016-07-12 12:49:33
 
 
-
+from digani.res.email import res_email_obj
 from base import AttributeFunctionBase
 
 class AttributeFunctionEmail(AttributeFunctionBase):
 
     @staticmethod
     def valid_email(string):
-        return True
+        return res_email_obj.match(string)
 
     @staticmethod
     def refine(attr_vals):

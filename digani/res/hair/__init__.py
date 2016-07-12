@@ -2,12 +2,43 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 17:57:13
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 18:01:23
+# @Last Modified time: 2016-07-12 12:33:55
 
+
+"""
+Hair Attributes:
+- Color
+- Length
+- Type
+
+"""
 
 import os
 import pygtrie
 from digani.res.base import ResourceBase
+
+RES_HAIR_COLOR_LEVEL = [
+    'Light',
+    'Dark'
+]
+
+RES_HAIR_COLOR = [
+    'Blond',
+    'Blonde',
+    'Red',
+    'Brown',
+    'Black',
+    'Grey',
+    'White',
+    'Brunet',
+    'Brunette'
+]
+
+RES_HAIR_LENGTH = [
+]
+
+RES_HAIR_TYPE = [
+]
 
 class ResourceHair(ResourceBase):
 
@@ -22,6 +53,6 @@ class ResourceHair(ResourceBase):
         super(ResourceHair, self).load(trie_obj, names_path=names_path)
 
     def match(self, token):
-        return super(ResourceHair, self).match(token, ResourceHair.res_trie_obj)
+        return super(ResourceHair, self).contain(token, ResourceHair.res_trie_obj)
 
 res_hair_obj = ResourceHair()
