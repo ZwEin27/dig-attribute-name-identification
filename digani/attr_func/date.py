@@ -2,25 +2,80 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:52:57
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-08 13:32:10
+# @Last Modified time: 2016-07-12 10:55:22
 
-import re
+
+from base import AttributeFunctionBase
 import dateutil.parser as dparser
+
+
+class AttributeFunctionDate(AttributeFunctionBase):
+
+    @staticmethod
+    def has_only_digits(attr_vals):
+        for value in attr_vals:
+            try:
+                int(value)
+            except:
+                return False
+        return True
+
+    @staticmethod
+    def valid_digit_length(attr_vals):
+        for value in attr_vals:
+            digits = re_digits.findall(value)
+            digits = ''.join(digits)
+            if 4 < len(digits) and len(digits) <= 8: #20160712
+                return False
+        return True
+
+    @staticmethod
+    def has_date(string):
+        try:
+            date = dparser.parse(string) # fuzzy=True
+        except:
+            return False
+        else:
+            return True
+
+    @staticmethod
+    def refine(attr_vals):
+        # specific refine function here
+        return attr_vals
+
+    @staticmethod
+    def match(attr_vals):
+        # freq_dict = super(AttributeFunctionDate, AttributeFunctionDate).frequent_count(attr_vals)
+
+        if has_only_digits(attr_vals):
+            if not valid_digit_length(attr_vals):
+                return False
+
+        attr_vals = super(AttributeFunctionDate, AttributeFunctionDate).refine_attr_vals(attr_vals, AttributeFunctionDate.refine)
+        
+        if not super(AttributeFunctionDate, AttributeFunctionDate).pre_judge(attr_vals):
+            return False
+
+        if not super(AttributeFunctionDate, AttributeFunctionDate).valid_counts(attr_vals, AttributeFunctionDate.has_date, threshold=0.4):
+            return False
+
+        return True
+
+
+
+
+"""
+import re
+re_alphabet = re.compile(r'[a-zA-Z]+')
+re_digits = re.compile(r'[0-9]+')
 
 irrelations = [
     r'\d{1,3}',
 ]
 reg_irrelation = r'|'.join(irrelations)
-# print reg_irrelation
 re_irrelation = re.compile(reg_irrelation)
 
-def has_date(string):
-    try:
-        date = dparser.parse(string) # fuzzy=True
-    except:
-        return False
-    else:
-        return True
+
 
 def attr_func_date(attr_vals):
     count = 0
@@ -48,4 +103,5 @@ if __name__ == '__main__':
     if re_irrelation.match(text):
         print 'True'
     else:
-        print 'False'
+        print 'False
+"""

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:23
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:44:16
+# @Last Modified time: 2016-07-12 10:50:00
 
 from base import AttributeFunctionBase
 from digani.res.zip import res_zip_obj
@@ -14,7 +14,7 @@ re_digits = re.compile(r'[0-9]+')
 class AttributeFunctionZip(AttributeFunctionBase):
 
     @staticmethod
-    def hasOnlyDigits(attr_vals):
+    def has_only_digits(attr_vals):
         for value in attr_vals:
             try:
                 int(value)
@@ -23,7 +23,7 @@ class AttributeFunctionZip(AttributeFunctionBase):
         return True
 
     @staticmethod
-    def validDigitLength(attr_vals):
+    def valid_digit_length(attr_vals):
         for value in attr_vals:
             digits = re_digits.findall(value)
             digits = ''.join(digits)
@@ -40,10 +40,10 @@ class AttributeFunctionZip(AttributeFunctionBase):
     def match(attr_vals):
         # freq_dict = super(AttributeFunctionZip, AttributeFunctionZip).frequent_count(attr_vals)
         
-        if not hasOnlyDigits(attr_vals):
+        if not has_only_digits(attr_vals):
             return False
 
-        if not validDigitLength(attr_vals):
+        if not valid_digit_length(attr_vals):
             return False
 
         attr_vals = super(AttributeFunctionZip, AttributeFunctionZip).refine_attr_vals(attr_vals, AttributeFunctionZip.refine)
@@ -51,7 +51,7 @@ class AttributeFunctionZip(AttributeFunctionBase):
         if not super(AttributeFunctionZip, AttributeFunctionZip).pre_judge(attr_vals):
             return False
 
-        if not super(AttributeFunctionZip, AttributeFunctionZip).valid_counts(attr_vals, res_zip_obj.match, threshold=0.4:
+        if not super(AttributeFunctionZip, AttributeFunctionZip).valid_counts(attr_vals, res_zip_obj.match, threshold=0.4):
             return False
 
         return True
