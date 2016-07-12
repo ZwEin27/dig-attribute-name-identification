@@ -21,8 +21,6 @@ enter the <WORK_PATH>, and run script below
 
     run-digani $(pwd)
 
-<WORK_PATH> is the dir contain domains' dataset, such as "/<YOU_DIR>/dig-data/sample-datasets/escorts"
-
 also, you can
 
     run-digani /<YOU_DIR>/dig-data/sample-datasets/escorts
@@ -32,4 +30,6 @@ also, you can
     import digani
 
     digani.run(<WORK_PATH>)
+
+    <WORK_PATH> is the dir contain domains' dataset, such as "/<YOU_DIR>/dig-data/sample-datasets/escorts"
 
