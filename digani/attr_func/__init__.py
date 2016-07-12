@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 22:25:18
+# @Last Modified time: 2016-07-11 23:40:32
 
 
 from telephone import *
@@ -11,9 +11,8 @@ from date import *
 from email import *
 from text import *
 from junk import *
-from city import *
-from state import *
 from person import *
+from location import *
 
 
 # attribute names
@@ -46,7 +45,7 @@ ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_AGE: dummy,
     ATTRIBUTE_NAMES_EMAIL: attr_func_email,
     ATTRIBUTE_NAMES_WEBSITE: dummy,
-    ATTRIBUTE_NAMES_LOCATION: attr_func_city,   # attr_func_location
+    ATTRIBUTE_NAMES_LOCATION: AttributeFunctionLocation.match,   # attr_func_location
     ATTRIBUTE_NAMES_PERSON: AttributeFunctionPerson.match,
     ATTRIBUTE_NAMES_HAIR: dummy,
     ATTRIBUTE_NAMES_EYE: dummy,
@@ -68,8 +67,8 @@ ATTRIBUTE_NAMES_IN_ORDER = [
     ATTRIBUTE_NAMES_EYE,
     ATTRIBUTE_NAMES_BREAST,
     ATTRIBUTE_NAMES_ETHNICITY,
-    ATTRIBUTE_NAMES_LOCATION,
     ATTRIBUTE_NAMES_PERSON,
+    ATTRIBUTE_NAMES_LOCATION,
     ATTRIBUTE_NAMES_JUNK,
     ATTRIBUTE_NAMES_TEXT
 ]

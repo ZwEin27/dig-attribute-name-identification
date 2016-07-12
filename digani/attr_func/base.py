@@ -2,11 +2,11 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 23:16:08
+# @Last Modified time: 2016-07-12 10:18:58
 
 import re
 
-reg_de_bracket = r'[\s]*\(.*\)[\s]*'
+reg_de_bracket = r'\(.*\)'
 re_de_bracket = re.compile(reg_de_bracket)
 
 
@@ -33,8 +33,16 @@ class AttributeFunctionBase(object):
         for (k, v) in freq_token_dict.iteritems():
             if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
                 to_be_removed.append(k)
-        attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
-        attr_vals = [re_de_bracket.sub('', _) for _ in attr_vals]
+        print to_be_removed
+
+        for i in range(len(attr_vals)):
+            if to_be_removed:
+                attr_vals[i] = attr_vals[i].strip()
+                for tbrw in to_be_removed:
+                    attr_vals[i] = attr_vals[i].replace(tbrw, '')
+
+        # attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
+        attr_vals = [' '.join(re_de_bracket.sub('', _).split()) for _ in attr_vals]
         return refine(attr_vals)
 
     @staticmethod

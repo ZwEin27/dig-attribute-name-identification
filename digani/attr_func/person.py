@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:48:43
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 23:16:33
+# @Last Modified time: 2016-07-11 23:37:36
 
 from digani.res.person import res_person_obj
 from base import AttributeFunctionBase
@@ -19,7 +19,7 @@ class AttributeFunctionPerson(AttributeFunctionBase):
         # freq_dict = super(AttributeFunctionPerson, AttributeFunctionPerson).frequent_count(attr_vals)
 
         attr_vals = super(AttributeFunctionPerson, AttributeFunctionPerson).refine_attr_vals(attr_vals, AttributeFunctionPerson.refine)
-        print attr_vals
+
         if not super(AttributeFunctionPerson, AttributeFunctionPerson).pre_judge(attr_vals):
             return False
 
