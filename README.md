@@ -15,7 +15,7 @@ DIGANI aims to extract phone numbers from url and text for [DIG](http://usc-isi-
     python setup.py install
 
 
-## Command line Usage
+## Command Line Usage
 
 enter the WORK_PATH, and run script below
 
