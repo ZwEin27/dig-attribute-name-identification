@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:52:57
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:55:22
+# @Last Modified time: 2016-07-12 10:59:12
 
 
 from base import AttributeFunctionBase
@@ -25,7 +25,7 @@ class AttributeFunctionDate(AttributeFunctionBase):
         for value in attr_vals:
             digits = re_digits.findall(value)
             digits = ''.join(digits)
-            if 4 < len(digits) and len(digits) <= 8: #20160712
+            if 4 >= len(digits) or len(digits) > 8: #20160712
                 return False
         return True
 

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 10:30:27
+# @Last Modified time: 2016-07-12 10:56:04
 
 
 from telephone import *
@@ -13,6 +13,7 @@ from text import *
 from junk import *
 from person import *
 from location import *
+from age import *
 
 
 # attribute names
