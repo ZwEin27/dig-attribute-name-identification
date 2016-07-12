@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 16:40:43
+# @Last Modified time: 2016-07-12 18:38:26
 
 
 from telephone import *
@@ -14,7 +14,7 @@ from junk import *
 from person import *
 from location import *
 from age import *
-from digani.attr_func.zip import *
+from zipcode import *
 from hair import *
 from eye import *
 from website import *
@@ -27,7 +27,7 @@ ATTRIBUTE_NAMES_TELEPHONE = 'telephone'
 ATTRIBUTE_NAMES_DATE = 'date'
 ATTRIBUTE_NAMES_EMAIL = 'email'
 ATTRIBUTE_NAMES_LOCATION = 'location'
-ATTRIBUTE_NAMES_ZIP ='zip'  # dict
+ATTRIBUTE_NAMES_ZIPCODE ='zipcode'  # dict
 ATTRIBUTE_NAMES_PERSON = 'name'
 ATTRIBUTE_NAMES_TEXT = 'text'
 ATTRIBUTE_NAMES_AGE ='age'
@@ -46,7 +46,7 @@ ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_TELEPHONE: attr_func_telephone,
     ATTRIBUTE_NAMES_IDENTIFIER: AttributeFunctionIdentifier.match,
     ATTRIBUTE_NAMES_DATE: AttributeFunctionDate.match,
-    ATTRIBUTE_NAMES_ZIP: AttributeFunctionZip.match,
+    ATTRIBUTE_NAMES_ZIPCODE: AttributeFunctionZipCode.match,
     ATTRIBUTE_NAMES_AGE: AttributeFunctionAge.match,
     ATTRIBUTE_NAMES_EMAIL: dummy, #AttributeFunctionEmail.match,
     ATTRIBUTE_NAMES_WEBSITE: AttributeFunctionWebsite.match,
@@ -62,7 +62,7 @@ ATTRIBUTE_NAMES = {
 
 ATTRIBUTE_NAMES_IN_ORDER = [
     ATTRIBUTE_NAMES_TELEPHONE,
-    ATTRIBUTE_NAMES_ZIP,
+    ATTRIBUTE_NAMES_ZIPCODE,
     ATTRIBUTE_NAMES_DATE,
     ATTRIBUTE_NAMES_AGE,
     ATTRIBUTE_NAMES_IDENTIFIER,
@@ -75,7 +75,7 @@ ATTRIBUTE_NAMES_IN_ORDER = [
     ATTRIBUTE_NAMES_PERSON,
     ATTRIBUTE_NAMES_LOCATION,
     ATTRIBUTE_NAMES_JUNK,
-    ATTRIBUTE_NAMES_TEXT        # todo
+    ATTRIBUTE_NAMES_TEXT        # simple return
 ]
 
 IGNORED_ATTRIBUTE_NAMES = [
