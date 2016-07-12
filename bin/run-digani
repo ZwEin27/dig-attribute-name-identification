@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+
+# run-digani $(pwd)
+
+import digani
+import sys
+
+digani.run(str(sys.argv[1]))

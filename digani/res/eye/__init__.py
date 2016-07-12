@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 17:56:52
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 15:36:57
+# @Last Modified time: 2016-07-12 16:29:59
 
 import os
 import pygtrie
@@ -15,15 +15,8 @@ RES_EYE_COLOR_LEVEL = [
 ]
 
 RES_EYE_COLOR = [
-    'Blond',
-    'Blonde',
-    'Red',
     'Brown',
-    'Black',
-    'Grey',
-    'White',
-    'Brunet',
-    'Brunette'
+    'Hazel'
 ]
 
 class ResourceEye(ResourceBase):
@@ -42,7 +35,7 @@ class ResourceEye(ResourceBase):
         if names_path:
             super(ResourceEye, self).load(trie_obj, names_path=names_path)
         else:
-            names = [' '.join([i, j]) for i, j in itertools.product(RES_EYE_COLOR_LEVEL, RES_EYE_COLOR)]
+            names = [' '.join([i, j]) for i, j in itertools.product(RES_EYE_COLOR_LEVEL, RES_EYE_COLOR)] + RES_EYE_COLOR
             super(ResourceEye, self).load_names(trie_obj, names)
 
     def match(self, token):

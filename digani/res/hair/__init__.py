@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 17:57:13
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 15:23:54
+# @Last Modified time: 2016-07-12 16:29:49
 
 
 """
@@ -63,7 +63,7 @@ class ResourceHair(ResourceBase):
         if names_path:
             super(ResourceHair, self).load(trie_obj, names_path=names_path)
         else:
-            names = [' '.join([i, j]) for i, j in itertools.product(RES_HAIR_COLOR_LEVEL, RES_HAIR_COLOR)] + RES_HAIR_LENGTH + RES_HAIR_TYPE
+            names = [' '.join([i, j]) for i, j in itertools.product(RES_HAIR_COLOR_LEVEL, RES_HAIR_COLOR)] + RES_HAIR_COLOR + RES_HAIR_LENGTH + RES_HAIR_TYPE
             super(ResourceHair, self).load_names(trie_obj, names)
             
     def match(self, token):
