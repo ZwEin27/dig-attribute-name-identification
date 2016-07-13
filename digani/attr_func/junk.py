@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:54:26
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 16:04:32
+# @Last Modified time: 2016-07-13 10:58:04
 
 from base import AttributeFunctionBase
 
@@ -10,12 +10,17 @@ import re
 re_alphabet = re.compile(r'[a-zA-Z]+')
 re_digits = re.compile(r'[0-9]+')
 
+"""
+--> 4. 1 --> Ms.Pretty Kittyy --> 4. 1 --> Vicki --> 4. 1 --> Domina Venus --> 4. 1 --> Amy --> 4. 1 --> Kandi --> 4. 1 --> Jezabel --> 4. 1 --> Lisa --> 4. 1 --> Kristen Vanhaughton --> 4. 1 --> Kim ...
+"""
+
 reg_junks = [
     # r'[0-9]+.*[a-z]+',
     # r'[a-z]+.*[0-9]+'
-    r'(?:\d+)'
+    r'(?:^\d+$)',
+    r'(?:(?:-->)\s*\w+)+'
 ]
-re_junks = re.compile(r'^' + r'|'.join(reg_junks) + r'$')
+re_junks = re.compile(r'|'.join(reg_junks))
 
 class AttributeFunctionJunk(AttributeFunctionBase):
 
@@ -41,7 +46,7 @@ class AttributeFunctionJunk(AttributeFunctionBase):
         #     return True
 
         # attr_vals = super(AttributeFunctionJunk, AttributeFunctionJunk).refine_attr_vals(attr_vals, AttributeFunctionJunk.refine)
-
+        # print attr_vals
         if not super(AttributeFunctionJunk, AttributeFunctionJunk).pre_judge(attr_vals):
             return False
 
@@ -56,9 +61,12 @@ class AttributeFunctionJunk(AttributeFunctionBase):
 
 
 if __name__ == '__main__':
-    text = ': 34-35 34 B Eyes: Brown Smokes: Yes but not with '
+    # text = ': 34-35 34 B Eyes: Brown Smokes: Yes but not with '
     # text = '2015'
-    # print re_junks.findall(text)
+    text = '--> 4. 1 --> Ms.Pretty Kittyy --> 4. 1 --> Vicki --> 4. 1 --> Domina Venus --> 4. 1 --> Amy --> 4. 1 --> Kandi --> 4. 1 --> Jezabel --> 4. 1 --> Lisa --> 4. 1 --> Kristen Vanhaughton --> 4. 1 --> Kim ...'
+    # print AttributeFunctionJunk.match(text)
+    print re_junks.findall(text)
+    
 
 
 """
