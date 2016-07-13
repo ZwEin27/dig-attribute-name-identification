@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 15:53:40
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 22:05:23
+# @Last Modified time: 2016-07-12 22:26:27
 
 
 from digani.res.email import res_email_obj
@@ -14,7 +14,7 @@ class AttributeFunctionEmail(AttributeFunctionBase):
     def valid_email(string):# check empty set
         if not res_email_obj.match(string):  
             return False
-        
+
         return True
 
     @staticmethod
@@ -28,7 +28,7 @@ class AttributeFunctionEmail(AttributeFunctionBase):
 
         attr_vals = super(AttributeFunctionEmail, AttributeFunctionEmail).refine_attr_vals(attr_vals, AttributeFunctionEmail.refine)
 
-
+        # print attr_vals
         if not super(AttributeFunctionEmail, AttributeFunctionEmail).pre_judge(attr_vals):
             return False
 

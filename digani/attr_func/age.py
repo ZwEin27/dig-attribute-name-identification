@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-12 10:55:55
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 11:25:21
+# @Last Modified time: 2016-07-12 22:42:31
 
 
 from base import AttributeFunctionBase
@@ -57,7 +57,7 @@ class AttributeFunctionAge(AttributeFunctionBase):
         if not super(AttributeFunctionAge, AttributeFunctionAge).pre_judge(attr_vals):
             return False
 
-        if not super(AttributeFunctionAge, AttributeFunctionAge).valid_counts(attr_vals, AttributeFunctionAge.valid_age, threshold=0.4):
+        if not super(AttributeFunctionAge, AttributeFunctionAge).valid_counts(attr_vals, AttributeFunctionAge.valid_age, threshold=0.8):
             return False
 
         return True

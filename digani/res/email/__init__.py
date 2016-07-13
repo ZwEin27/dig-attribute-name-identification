@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-12 12:43:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 22:08:37
+# @Last Modified time: 2016-07-12 22:26:05
 
 import os
 from email_extractor import EE
@@ -14,13 +14,13 @@ class ResourceEmail():
     res_names_path = os.path.join(os.path.dirname(__file__), 'names.json')
 
     def match(self, token):
-        if 0 == len(res_email_extractor.extract_email(token)):
+        extractions = res_email_extractor.extract_email(token)
+        if 0 == len(extractions):
             return False
-        for email in res_email_extractor.extract_email(token):
+        for email in extractions:
             token = token.replace(email, '')
-        if len(token.split()) > 3:
+        if len(token.split()) > 0:
             return False
-
         return True
 
 res_email_obj = ResourceEmail()

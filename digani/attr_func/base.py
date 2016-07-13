@@ -2,11 +2,11 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 14:32:57
+# @Last Modified time: 2016-07-12 22:52:01
 
 import re
 
-reg_de_bracket = r'\(.*\)'
+reg_de_bracket = r'\(.*?\)'
 re_de_bracket = re.compile(reg_de_bracket)
 
 
@@ -30,16 +30,20 @@ class AttributeFunctionBase(object):
     @staticmethod
     def refine_attr_vals(attr_vals, refine, threshold=0.6):
         freq_token_dict = {}
-        size = len(attr_vals)
+        size = 0
         for value in attr_vals:
+            if value != '':
+                size += 1
             for token in value.split():
                 freq_token_dict.setdefault(token, 0)
                 freq_token_dict[token] += 1
         to_be_removed = []
+        
         for (k, v) in freq_token_dict.iteritems():
+            # print k, v
             if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
                 to_be_removed.append(k)
-
+        # print to_be_removed, size
         for i in range(len(attr_vals)):
             if to_be_removed:
                 attr_vals[i] = attr_vals[i].strip()
@@ -47,6 +51,7 @@ class AttributeFunctionBase(object):
                     attr_vals[i] = attr_vals[i].replace(tbrw, '')
 
         # attr_vals = [''.join([_.replace(tbrw, '').strip() for tbrw in to_be_removed]) if to_be_removed else _ for _ in attr_vals]
+        # print attr_vals
         attr_vals = [' '.join(re_de_bracket.sub('', _).split()) for _ in attr_vals]
         return refine(attr_vals)
 
@@ -57,15 +62,17 @@ class AttributeFunctionBase(object):
     @staticmethod
     def valid_counts(attr_vals, match, threshold=0.4):
         count = 0
+        empty_count = 0
         size = len(attr_vals)
         for value in attr_vals:
             if not value or value == '':
+                empty_count += 1
                 continue
             if match(value):
                 count += 1
         if count == 0:
             return False
-        if float(count) / size < threshold:
+        if float(count) / (size-empty_count) < threshold:
             return False
         return True
 

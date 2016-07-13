@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:43
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 12:15:19
+# @Last Modified time: 2016-07-12 22:33:15
 
 
 
@@ -33,7 +33,7 @@ class AttributeFunctionWebsite(AttributeFunctionBase):
         # freq_dict = super(AttributeFunctionWebsite, AttributeFunctionWebsite).frequent_count(attr_vals)
 
         attr_vals = super(AttributeFunctionWebsite, AttributeFunctionWebsite).refine_attr_vals(attr_vals, AttributeFunctionWebsite.refine)
-
+        # print attr_vals
         if not super(AttributeFunctionWebsite, AttributeFunctionWebsite).pre_judge(attr_vals):
             return False
 
@@ -44,9 +44,31 @@ class AttributeFunctionWebsite(AttributeFunctionBase):
 
 if __name__ == '__main__':
     attr_vals = [
-        'https://www.rubads.com/beautiful----brown-skinned----angel----------28-56547',
-        'http://www.rubads.com/lily_luv-702-809-0051---massage--las-vegas-49051',
+        # 'https://www.rubads.com/beautiful----brown-skinned----angel----------28-56547',
+        # 'http://www.rubads.com/lily_luv-702-809-0051---massage--las-vegas-49051',
         # 'sdsdfjsd',
-        'sdf'
+        'Website: http://www.thecarmenfoxx.com',
+        '',
+        'Website: http://giafey.TheEscortGirl.com',
+        '',
+        'Website: http://Nemahdolls.escortbook.com',
+        '',
+        'Website: Http://www.chenninblanc.callgirlfiles.com',
+        '',
+        '',
+        '',
+        '',
+        'Website: http://jessaxo.escorts.biz/home',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        'Website: http://jaxruby.omgmaker.com/',
+        '',
+        'Website: http://lovelyalicia69.callgirlfiles.com/',
+        ''
     ]
     print AttributeFunctionWebsite.match(attr_vals)

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 11:01:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 19:40:04
+# @Last Modified time: 2016-07-12 22:24:46
 
 
 import sys
@@ -47,10 +47,11 @@ class AttributeFunctionMethods(unittest.TestCase):
 
     def test_func_email(self):
         attr_vals = [
-            'zwein@gmail.com',
-            'sdf@yahoo.com',
-            'Cocos (keeling) Islands'
+            'Status: Available Now 3:44 pm Email: carmen@thecarmenfoxx.com',
+            'Status: Available Now 8:07 am Contact Phone: (714) 487-2746 (text) Email: Chdbham@gmail.com',
+            'Status: TEXT MSG 10:00 am - TER Tuesday. Priority Booking to all Whitelists. Book now. Contact Phone: (310) 945-7386 (text) Email: GoodnightGia@gmail.com',
         ]
+        # print 'ss'
         print AttributeFunctionEmail.match(attr_vals)
     
 if __name__ == '__main__':
