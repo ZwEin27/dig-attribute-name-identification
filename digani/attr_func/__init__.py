@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:29:27
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 18:58:33
+# @Last Modified time: 2016-07-13 11:36:33
 
 
 from telephone import *
@@ -18,6 +18,7 @@ from zipcode import *
 from hair import *
 from eye import *
 from website import *
+from breast import *
 
 
 # attribute names
@@ -54,7 +55,7 @@ ATTRIBUTE_NAMES = {
     ATTRIBUTE_NAMES_PERSON: AttributeFunctionPerson.match,
     ATTRIBUTE_NAMES_HAIR: AttributeFunctionHair.match,
     ATTRIBUTE_NAMES_EYE: AttributeFunctionEye.match,
-    ATTRIBUTE_NAMES_BREAST: dummy,
+    ATTRIBUTE_NAMES_BREAST: AttributeFunctionBreast.match,
     ATTRIBUTE_NAMES_ETHNICITY: dummy,
     ATTRIBUTE_NAMES_JUNK: AttributeFunctionJunk.match,
     ATTRIBUTE_NAMES_TEXT: lambda _: True
