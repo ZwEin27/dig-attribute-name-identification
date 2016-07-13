@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:04:06
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-13 11:31:01
+# @Last Modified time: 2016-07-13 12:23:58
 
 
 
@@ -26,7 +26,7 @@ class AttributeFunctionBreast(AttributeFunctionBase):
                     continue
             except Exception as e:
                 pass
-            if not res_breast_obj.match(string):  
+            if not res_breast_obj.match(extraction):  
                 return False
         return True
 
@@ -39,7 +39,7 @@ class AttributeFunctionBreast(AttributeFunctionBase):
     def match(attr_vals):
         # freq_dict = super(AttributeFunctionBreast, AttributeFunctionBreast).frequent_count(attr_vals)
 
-        attr_vals = super(AttributeFunctionBreast, AttributeFunctionBreast).refine_attr_vals(attr_vals, AttributeFunctionBreast.refine)
+        # attr_vals = super(AttributeFunctionBreast, AttributeFunctionBreast).refine_attr_vals(attr_vals, AttributeFunctionBreast.refine)
 
         # print attr_vals
         if not super(AttributeFunctionBreast, AttributeFunctionBreast).pre_judge(attr_vals):

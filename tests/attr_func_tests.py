@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 11:01:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-13 10:36:24
+# @Last Modified time: 2016-07-13 12:23:25
 
 
 import sys
@@ -55,6 +55,19 @@ class AttributeFunctionMethods(unittest.TestCase):
         ]
         # print 'ss'
         print AttributeFunctionEmail.match(attr_vals)
+
+    def test_func_breast(self):
+        attr_vals = [
+            'age: 26 - from Detroit, MI',
+            'age: 38 - from Detroit, MI',
+            '',
+            'age: 26 - from El Paso, TX',
+            'age: 27 - from Nashvile, TN',
+            '',
+            'age: 39 - from Detroit, MI',
+        ]
+        # print 'ss'
+        print AttributeFunctionBreast.match(attr_vals)
     
 if __name__ == '__main__':
     # unittest.main()
@@ -64,8 +77,9 @@ if __name__ == '__main__':
 
         # suite.addTest(AttributeFunctionMethods('test_func_base'))
         # suite.addTest(AttributeFunctionMethods('test_func_person'))
-        suite.addTest(AttributeFunctionMethods('test_func_location'))
+        # suite.addTest(AttributeFunctionMethods('test_func_location'))
         # suite.addTest(AttributeFunctionMethods('test_func_email'))
+        suite.addTest(AttributeFunctionMethods('test_func_breast'))
 
         runner = unittest.TextTestRunner()
         runner.run(suite)

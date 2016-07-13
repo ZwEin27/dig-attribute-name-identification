@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-13 11:55:55
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-13 12:10:49
+# @Last Modified time: 2016-07-13 12:18:29
 
 
 from digani.res.nationality import res_nationality_obj
@@ -21,7 +21,7 @@ class AttributeFunctionNationality(AttributeFunctionBase):
             return False
 
         for extraction in extractions:
-            if not res_nationality_obj.match(string):  
+            if not res_nationality_obj.match(extraction):  
                 return False
         return True
 
