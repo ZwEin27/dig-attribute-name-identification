@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 22:52:01
+# @Last Modified time: 2016-07-12 23:09:57
 
 import re
 
@@ -41,7 +41,7 @@ class AttributeFunctionBase(object):
         
         for (k, v) in freq_token_dict.iteritems():
             # print k, v
-            if (v != 0 and v % size == 0) or (float(v) / size >= threshold):
+            if ((v != 0 and v % size == 0) or (float(v) / size >= threshold)) and size > 3:
                 to_be_removed.append(k)
         # print to_be_removed, size
         for i in range(len(attr_vals)):
