@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-09 14:35:51
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 16:07:13
+# @Last Modified time: 2016-07-12 21:59:34
 
 import os
 import codecs
@@ -39,16 +39,12 @@ def generate_step02_extractions(mapping, step01_extractions_path):
                     continue
 
                 name = mapping[key]
-                # names.setdefault(name, 0)
-                # names[name] += 1
-                if name.split('-')[0] == ATTRIBUTE_NAMES_JUNK:
-                    continue
-                # if name in extraction:
-                #     extraction[name] += ',' + extraction.pop(key)
-                # else:
-                # '-' + str(names[name])
-                extraction[name if name != 'unknown' else key] = extraction.pop(key)
 
+                # if name.split('-')[0] == ATTRIBUTE_NAMES_JUNK:
+                #     extraction.pop(key)
+                #     continue
+              
+                extraction[name] = extraction.pop(key)
             extractions.append(extraction)
     return extractions
 

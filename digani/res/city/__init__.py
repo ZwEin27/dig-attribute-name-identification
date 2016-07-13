@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 17:13:55
+# @Last Modified time: 2016-07-12 19:41:19
 
 import os
 import pygtrie
@@ -10,8 +10,8 @@ from digani.res.base import ResourceBase
 
 class ResourceCity(ResourceBase):
 
-    # res_names_path = os.path.join(os.path.dirname(__file__), 'names.json')
-    res_names_path = os.path.join(os.path.dirname(__file__), 'names_small.json')
+    res_names_path = os.path.join(os.path.dirname(__file__), 'names.json')
+    # res_names_path = os.path.join(os.path.dirname(__file__), 'names_small.json')
     res_trie_obj = pygtrie.CharTrie()
 
     def __init__(self):
