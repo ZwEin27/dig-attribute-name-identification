@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:13
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 19:06:19
+# @Last Modified time: 2016-07-13 10:17:08
 
 
 from digani.res.city import res_city_obj
@@ -14,8 +14,18 @@ class AttributeFunctionLocation(AttributeFunctionBase):
 
     @staticmethod
     def valid_location(string):
-        if not (res_city_obj.match(string) or res_state_obj.match(string) or res_country_obj.match(string)):
-            return False
+        def is_valid(string):
+            if not (res_city_obj.match(string) or res_state_obj.match(string) or res_country_obj.match(string)):
+                return False
+            return True
+            
+        tokens = string.split(',')
+        if len(tokens) > 1:
+            for token in tokens:
+                if not is_valid(string):
+                    return False
+        else:
+            return is_valid(string)
         return True
 
     @staticmethod

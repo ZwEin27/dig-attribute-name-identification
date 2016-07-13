@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 11:01:02
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 22:24:46
+# @Last Modified time: 2016-07-13 10:12:41
 
 
 import sys
@@ -39,9 +39,11 @@ class AttributeFunctionMethods(unittest.TestCase):
 
     def test_func_location(self):
         attr_vals = [
-            'Irvine Escorts',
-            'San Mateo Escorts',
-            'Anaheim MP / AMP / AAMP'
+            # 'Irvine Escorts',
+            # 'San Mateo Escorts',
+            'ioana, MI',
+            'ioana, MI',
+            # 'Anaheim MP / AMP / AAMP'
         ]
         print AttributeFunctionLocation.match(attr_vals)
 
@@ -62,8 +64,8 @@ if __name__ == '__main__':
 
         # suite.addTest(AttributeFunctionMethods('test_func_base'))
         # suite.addTest(AttributeFunctionMethods('test_func_person'))
-        # suite.addTest(AttributeFunctionMethods('test_func_location'))
-        suite.addTest(AttributeFunctionMethods('test_func_email'))
+        suite.addTest(AttributeFunctionMethods('test_func_location'))
+        # suite.addTest(AttributeFunctionMethods('test_func_email'))
 
         runner = unittest.TextTestRunner()
         runner.run(suite)

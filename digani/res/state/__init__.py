@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-11 16:56:17
+# @Last Modified time: 2016-07-13 10:19:10
 
 
 import os
@@ -17,6 +17,7 @@ class ResourceState(ResourceBase):
     def __init__(self):
         ResourceBase.__init__(self)
         self.load()
+        self.load(names_path=os.path.join(os.path.dirname(__file__), 'state_abbreviation.json'))
 
     def load(self, trie_obj=res_trie_obj, names_path=res_names_path):
         super(ResourceState, self).load(trie_obj, names_path=names_path)

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-07 14:30:09
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 23:10:08
+# @Last Modified time: 2016-07-12 23:32:04
 
 import re
 from base import AttributeFunctionBase
@@ -26,7 +26,7 @@ class AttributeFunctionTelephone(AttributeFunctionBase):
                 return False
             return True
 
-        print string
+        # print string
         if not valid_digit_length(string):
             return False
 
