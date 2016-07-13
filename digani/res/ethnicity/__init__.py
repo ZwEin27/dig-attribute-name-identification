@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 16:42:35
+# @Last Modified time: 2016-07-13 11:42:50
 
 import os
 import pygtrie
@@ -28,8 +28,8 @@ class ResourceEthnicity(ResourceBase):
     #     super(ResourceEthnicity, self).load(trie_obj, names_path=names_path)
     def load(self, trie_obj=res_trie_obj, names_path=res_names_path): 
         super(ResourceEthnicity, self).load(trie_obj, names_path=names_path)
-        names = [' '.join([i, j]) for i, j in itertools.product(ETHNICITY_COLOR, trie_obj.keys())]
-        super(ResourceEthnicity, self).load_names(trie_obj, names)
+        # names = [' '.join([i, j]) for i, j in itertools.product(ETHNICITY_COLOR, trie_obj.keys())]
+        # super(ResourceEthnicity, self).load_names(trie_obj, names)
         
 
     def match(self, token):
