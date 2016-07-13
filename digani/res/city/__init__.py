@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-08 13:40:38
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-13 09:24:36
+# @Last Modified time: 2016-07-13 10:24:15
 
 import os
 import pygtrie
@@ -17,6 +17,7 @@ class ResourceCity(ResourceBase):
     def __init__(self):
         ResourceBase.__init__(self)
         self.load()
+        self.load(names_path=os.path.join(os.path.dirname(__file__), 'extra_places.json'))
 
     def load(self, trie_obj=res_trie_obj, names_path=res_names_path):
         super(ResourceCity, self).load(trie_obj, names_path=names_path)

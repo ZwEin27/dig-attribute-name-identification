@@ -2,13 +2,15 @@
 # @Author: ZwEin
 # @Date:   2016-07-11 18:03:13
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-13 10:17:08
+# @Last Modified time: 2016-07-13 10:38:04
 
 
 from digani.res.city import res_city_obj
 from digani.res.state import res_state_obj
 from digani.res.country import res_country_obj
 from base import AttributeFunctionBase
+
+# print res_state_obj.res_trie_obj.values()
 
 class AttributeFunctionLocation(AttributeFunctionBase):
 
@@ -18,11 +20,11 @@ class AttributeFunctionLocation(AttributeFunctionBase):
             if not (res_city_obj.match(string) or res_state_obj.match(string) or res_country_obj.match(string)):
                 return False
             return True
-            
+
         tokens = string.split(',')
         if len(tokens) > 1:
             for token in tokens:
-                if not is_valid(string):
+                if not is_valid(token):
                     return False
         else:
             return is_valid(string)
@@ -38,7 +40,7 @@ class AttributeFunctionLocation(AttributeFunctionBase):
         # freq_dict = super(AttributeFunctionLocation, AttributeFunctionLocation).frequent_count(attr_vals)
 
         attr_vals = super(AttributeFunctionLocation, AttributeFunctionLocation).refine_attr_vals(attr_vals, AttributeFunctionLocation.refine)
-
+        # print attr_vals
         if not super(AttributeFunctionLocation, AttributeFunctionLocation).pre_judge(attr_vals):
             return False
 

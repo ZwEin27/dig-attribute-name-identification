@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-10 21:50:44
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 23:09:57
+# @Last Modified time: 2016-07-13 10:33:34
 
 import re
 
@@ -29,6 +29,8 @@ class AttributeFunctionBase(object):
 
     @staticmethod
     def refine_attr_vals(attr_vals, refine, threshold=0.6):
+        attr_vals = [_.lower() for _ in attr_vals]
+
         freq_token_dict = {}
         size = 0
         for value in attr_vals:
@@ -80,7 +82,7 @@ class AttributeFunctionBase(object):
 
 if __name__ == '__main__':
     attr_vals = [
-        'of hello',
+        'Of hello',
         'of world',
         'of work',
         'of yes',
@@ -88,7 +90,7 @@ if __name__ == '__main__':
         'sjkdflj',
         'foiwejfowi',
     ]
-    obj = AttributeFunctionBase(attr_vals)
+    obj = AttributeFunctionBase()
     # print obj.freq_dict
     print obj.attr_vals
 

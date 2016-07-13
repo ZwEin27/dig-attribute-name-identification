@@ -2,12 +2,13 @@
 # @Author: ZwEin
 # @Date:   2016-07-09 10:58:11
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-12 12:33:08
+# @Last Modified time: 2016-07-13 10:35:01
 
 import pygtrie
 
 def load_trie_obj(trie_obj, words):
     for word in words:
+        word = word.strip().lower()
         trie_obj[word] = word
     return trie_obj
 
