@@ -1,0 +1,50 @@
+[
+  {
+    "begin_regex": "UTF\\-8\"\\s+/\\>.*?\\<title\\>",
+    "end_regex": "\\</title\\>\\<meta",
+    "include_end_regex": true,
+    "name": "0006",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\</title\\>\\<meta"
+  },
+  {
+    "begin_regex": "\\<li\\s+id=\"menu\\-item\\-596.*?\\<main\\s+class=\"content",
+    "end_regex": "text\"\\>\\<div\\s+class",
+    "include_end_regex": true,
+    "name": "Contact0777",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "text\"\\>\\<div\\s+class",
+    "visible_chunk_before": "Contact"
+  },
+  {
+    "begin_regex": "\\<li\\s+id=\"menu\\-item\\-596.*?text\"\\>\\<div\\s+class",
+    "end_regex": "\\>\\</main\\>\\<",
+    "include_end_regex": true,
+    "name": "0778",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\>\\</main\\>\\<"
+  },
+  {
+    "begin_regex": "\\<li\\s+id=\"menu\\-item\\-596.*?\\>\\</main\\>\\<",
+    "end_regex": "/div\\>\\</div\\>\\<footer",
+    "include_end_regex": true,
+    "name": "0779",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "/div\\>\\</div\\>\\<footer"
+  },
+  {
+    "begin_regex": "\\<li\\s+id=\"menu\\-item\\-596.*?\\<p\\>Copyright\\s+Miss\\s+Athena.*?Lust\\s+\\&#x000A9;",
+    "end_regex": "\u00b7\\s+\\<a\\s+href=\"",
+    "include_end_regex": true,
+    "name": "CopyrightMissAthenaLust&#x000A9;0789",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\u00b7\\s+\\<a\\s+href=\"",
+    "visible_chunk_after": "\u00b7",
+    "visible_chunk_before": "Copyright Miss Athena Lust &#x000A9;"
+  }
+]

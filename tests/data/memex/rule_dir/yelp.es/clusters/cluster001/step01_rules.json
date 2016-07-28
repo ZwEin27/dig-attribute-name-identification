@@ -1,0 +1,60 @@
+[
+  {
+    "begin_regex": "property=\"og:type.*?\\>\\s+\\<title\\>",
+    "end_regex": "\\</title\\>\\s+\\<!",
+    "include_end_regex": true,
+    "name": "0221",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\</title\\>\\s+\\<!"
+  },
+  {
+    "begin_regex": "es\"\\>\\s+\\<div\\s+\\>",
+    "end_regex": "\\<div\\s+class",
+    "include_end_regex": true,
+    "name": "0439",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\<div\\s+class"
+  },
+  {
+    "begin_regex": "\\>Yelp\\</a\\>",
+    "end_regex": "\\</div\\>\\s+\\<script",
+    "include_end_regex": true,
+    "name": "Yelp0456",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\</div\\>\\s+\\<script",
+    "visible_chunk_before": "Yelp"
+  },
+  {
+    "begin_regex": "content\\-wrap\\-\\-full.*?div\\>\\s+\\<div\\s+id=\"alert",
+    "end_regex": "\\</div\\>\\s+\\<!",
+    "include_end_regex": true,
+    "name": "Aceptar0568",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\</div\\>\\s+\\<!",
+    "visible_chunk_before": "Aceptar"
+  },
+  {
+    "begin_regex": "content\\-wrap\\-\\-full.*?class=\"footer\\-menu_header\"\\>Descubrir.*?\"\\>\\s+\\<li\\s+class=",
+    "end_regex": "\\<a\\s+href=\"http",
+    "include_end_regex": true,
+    "name": "Descubrir0653",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\<a\\s+href=\"http",
+    "visible_chunk_before": "Descubrir"
+  },
+  {
+    "begin_regex": "content\\-wrap\\-\\-full.*?\\-\\-boxed\\-on\\-mobile\\s+dropdown\\-\\-restricted.*?=\"dropdown_toggle\\-label.*?\"\\>",
+    "end_regex": "\\<",
+    "include_end_regex": true,
+    "name": "Pa\u00edses1406",
+    "removehtml": true,
+    "rule_type": "ItemRule",
+    "strip_end_regex": "\\<",
+    "visible_chunk_before": "Pa\u00edses"
+  }
+]
